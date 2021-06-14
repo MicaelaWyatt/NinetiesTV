@@ -56,24 +56,28 @@ namespace NinetiesTV
         }
 
         // 3. Return a list of shows ordered by their IMDB Rating with the highest rated show first.
-        static List<string> ShowsByPopularity(List<Show> shows) { return shows.OrderByDescending(s => s.ImdbRating).Select(s => s.Name).ToList(); }
+        static List<string> ShowsByPopularity(List<Show> shows)
+        {
+            return shows.OrderByDescending(s => s.ImdbRating).Select(s => s.Name).ToList();
+        }
 
         // 4. Return a list of shows whose title contains an & character.
         static List<Show> ShowsWithAmpersand(List<Show> shows)
         {
-            throw new NotImplementedException();
+            return shows.Where(s => s.Name.Contains("&")).ToList();
         }
 
         // 5. Return the most recent year that any of the shows aired.
         static int MostRecentYear(List<Show> shows)
         {
-            throw new NotImplementedException();
+            return shows.Max(s => s.EndYear);
         }
 
         // 6. Return the average IMDB rating for all the shows.
         static double AverageRating(List<Show> shows)
         {
-            throw new NotImplementedException();
+            double average = shows.Average(s => s.ImdbRating);
+            return average;
         }
 
         // 7. Return the shows that started and ended in the 90s.
