@@ -56,10 +56,7 @@ namespace NinetiesTV
         }
 
         // 3. Return a list of shows ordered by their IMDB Rating with the highest rated show first.
-        static List<Show> ShowsByPopularity(List<Show> shows)
-        {
-            throw new NotImplementedException();
-        }
+        static List<string> ShowsByPopularity(List<Show> shows) { return shows.OrderByDescending(s => s.ImdbRating).Select(s => s.Name).ToList(); }
 
         // 4. Return a list of shows whose title contains an & character.
         static List<Show> ShowsWithAmpersand(List<Show> shows)
